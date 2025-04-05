@@ -108,7 +108,7 @@ class Game {
     }
 
 }
-//Metho to play the game
+//Method to play the game
 /**
  * 
  * Pass out cards to our players
@@ -119,7 +119,7 @@ class Game {
  */
     playGame() {
         //Instantiate a new deck, create a deck, and then shuffle the deck
-        const deck = new Deck
+        const deck = new Deck()
         deck.createDeck()
         deck.shuffleDeck()
 
@@ -134,11 +134,13 @@ class Game {
             //conditional logic to award points based on comparing card values
             if (this.player1.hand[i].value > this.player2.hand[i].value){
                 this.player1.score++
+
+                console.log(`${this.player1.hand[i].name} test`)
                 console.log(`
                 P1 Card: ${this.player1.hand[i].name}
                 P2 Card: ${this.player2.hand[i].name}
                 Player 1 wins a point!
-                Current Score p1: {$this.player1.score}, p2: ${this.player2.score} 
+                Current Score p1: ${this.player1.score}, p2: ${this.player2.score} 
                 `)
            } else if(this.player2.hand[i].value > this.player1.hand[i].value){
              this.player2.score++
@@ -146,14 +148,14 @@ class Game {
                 P1 Card: ${this.player1.hand[i].name}
                 P2 Card: ${this.player2.hand[i].name}
                 Player 2 wins a point!
-                Current Score p1: {$this.player1.score}, p2: ${this.player2.score} 
+                Current Score p1: ${this.player1.score}, p2: ${this.player2.score} 
                 `)
            } else {
             console.log(`
                 P1 Card: ${this.player1.hand[i].name}
                 P2 Card: ${this.player2.hand[i].name}
                 Tie: No points awarded
-                Current Score p1: {$this.player1.score}, p2: ${this.player2.score} 
+                Current Score p1: ${this.player1.score}, p2: ${this.player2.score} 
                 `)
            }
         }
@@ -176,5 +178,5 @@ class Game {
 }
 
 
-const game = new Game
+const game = new Game()
 game.playGame()
