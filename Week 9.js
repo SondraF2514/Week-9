@@ -59,20 +59,22 @@ class Deck{
         for (let i = 0; i < this.suits.length; i++) {
             for (let j = 0; j < this.ranks.length; j++) {
                 let card = {
-                    name:  '${this.ranks[j]} of ${this.suits[i]}' ,
+                    name:  `${this.ranks[j]} of ${this.suits[i]}` ,
                     value: j + 1 
-                }                
+                }             
                 this.deck.push(card)
             }
         }
-    }
-        shuffleDeck() {
-            for (let i = this.deck.length - 1; i > 0; i--){
-                let j = Math.floor(Math.random() * (i + i));
 
+    }
+    
+      
+        shuffleDeck() {
+          
+            for (let i = this.deck.length - 1; i > 0; i--){
+                let j = Math.floor(Math.random() * (i + 1));
                 [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]]
             }
-
         }
     }
 //Class for a Game(Specifically our WAR game)
@@ -135,7 +137,7 @@ class Game {
             if (this.player1.hand[i].value > this.player2.hand[i].value){
                 this.player1.score++
 
-                console.log(`${this.player1.hand[i].name} test`)
+               
                 console.log(`
                 P1 Card: ${this.player1.hand[i].name}
                 P2 Card: ${this.player2.hand[i].name}
